@@ -3,9 +3,9 @@ const St = imports.gi.St;
 const MainLoop = imports.mainloop
 const Lang = imports.lang
 
-let green = "🟩";
-let red = "🟥";
-let purple = "🟪";
+let greenEmoji = "🟩";
+let redEmoji = "🟥";
+let purpleEmoji = "🟪";
 
 function HelloDesklet(metadata, desklet_id) {
     this._init(metadata, desklet_id);
@@ -34,15 +34,6 @@ HelloDesklet.prototype = {
         // main container for the desklet
         this.window = new St.Bin();
         this.text = new St.Label();
-        this.text.set_text("Hello!");
-
-        const DateObj = new Date();
-
-        let current_time = "" + DateObj.getTime();
-
-
-        this.text.set_text(current_time);
-
         this.window.add_actor(this.text);
         this.setContent(this.window);
 
@@ -59,11 +50,11 @@ HelloDesklet.prototype = {
         let nGreens = Math.floor((d.getTime() - this.START_TIME) / this.SECONDS_PER_INTERVAL);
 
         if (nGreens >= this.MAX_INTERVALS) {
-            return purple.repeat(this.MAX_INTERVALS);
+            return purpleEmoji.repeat(this.MAX_INTERVALS);
         }
 
         let nReds = this.MAX_INTERVALS - nGreens;
-        return green.repeat(nGreens) + red.repeat(nReds);
+        return greenEmoji.repeat(nGreens) + redEmoji.repeat(nReds);
 
     }
 
