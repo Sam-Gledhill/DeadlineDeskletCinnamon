@@ -1,0 +1,8 @@
+{
+    "max-instances": "1",
+    "uuid": "TestProject@SG",
+    "name": "TestProject",
+    "description": "This is my first desklet",
+    "version": "0.1",
+    "prevent-decorations": false
+}
