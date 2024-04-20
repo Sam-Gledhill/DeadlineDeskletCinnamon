@@ -17,10 +17,10 @@ HelloDesklet.prototype = {
     _init: function (metadata, desklet_id) {
         Desklet.Desklet.prototype._init.call(this, metadata, desklet_id);
 
-        const startDate = new Date("April 20, 2024 19:10:00");
+        const startDate = new Date("April 20, 2024 19:17:00");
         this.START_TIME = startDate.getTime();
 
-        const endDate = new Date("April 20, 2024 19:11:00");
+        const endDate = new Date("April 20, 2024 19:18:00");
         this.END_TIME = endDate.getTime()
         this.MAX_INTERVALS = 10;
         this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
