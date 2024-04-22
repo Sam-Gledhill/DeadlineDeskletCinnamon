@@ -88,7 +88,7 @@ DeadlineBar.prototype = {
         const d = new Date();
         let nGreens = Math.floor((d.getTime() - this.START_TIME) / this.SECONDS_PER_INTERVAL);
 
-        if (nGreens > this.MAX_INTERVALS) {
+        if (nGreens >= this.MAX_INTERVALS) {
             return purpleEmoji.repeat(this.MAX_INTERVALS);
         }
 
