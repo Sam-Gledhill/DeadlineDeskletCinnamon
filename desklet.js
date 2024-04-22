@@ -4,6 +4,7 @@ const St = imports.gi.St;
 const MainLoop = imports.mainloop;
 const Lang = imports.lang;
 const Util = imports.misc.util;
+const Settings = imports.ui.settings
 
 let greenEmoji = "🟩";
 let redEmoji = "🟥";
@@ -18,6 +19,11 @@ DeadlineBar.prototype = {
 
     _init: function (metadata, desklet_id) {
         Desklet.Desklet.prototype._init.call(this, metadata, desklet_id);
+
+        //Settings stored in settings-scema.json
+        this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
+
+
 
         const startDate = new Date(metadata["startDate"]);
         this.START_TIME = startDate.getTime();
@@ -49,6 +55,10 @@ DeadlineBar.prototype = {
 
     },
 
+    on_desklet_removed: function () {
+        MainLoop.source_remove(this.timeout)
+    },
+
     _updateTimeLoop: function () {
         this.text.set_text(this._timeToEmoji())
         this.timeout = MainLoop.timeout_add_seconds(1, Lang.bind(this, this._updateTimeLoop));
@@ -66,10 +76,6 @@ DeadlineBar.prototype = {
         let nReds = this.MAX_INTERVALS - nGreens;
         return greenEmoji.repeat(nGreens) + redEmoji.repeat(nReds);
 
-    },
-
-    on_desklet_removed: function () {
-        MainLoop.source_remove(this.timeout)
     }
 
 };

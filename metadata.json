@@ -5,7 +5,7 @@
     "description": "Insert Here",
     "version": "0.1",
     "prevent-decorations": false,
-    "numberOfSegments": "10",
+    "numberOfSegments": "60",
     "startDate": "April 1, 2024 00:00:00",
     "endDate": "May 1, 2024 00:00:00"
 }
