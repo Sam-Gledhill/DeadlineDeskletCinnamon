@@ -6,7 +6,7 @@ Below are a few various examples for dates. These dates as well as the number of
 
 ![loading-bar.jpg](https://github.com/CodeZilla12/DeadlineDeskletCinnamon/assets/69915380/96412408-343f-469b-9a60-0c5f423e833e)
 
-This was a deceptively challenging project, as the existing documentation for desklet-development is extremely lackluster.
+This was a deceptively challenging project, as the existing documentation for desklet development is extremely lackluster.
 
 # Dependencies & Installation
 
