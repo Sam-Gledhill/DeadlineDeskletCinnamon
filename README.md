@@ -28,6 +28,7 @@ Drop the contents into at folder located at _~/.local/share/cinnamon/desklets/De
 
 
 # Todo
--  Sanitising input on the config & adding return to default
--  Multiple instances with individual dates tracked
--  Ability to have a tracker span multiple newlines
+-  Sanitising input on the config & adding return to default option.
+-  Multiple desklet instances with individual deadlines tracked.
+-  Ability to have a tracker span multiple newlines.
+-  Add option to automatically insert current date into config.
