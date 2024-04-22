@@ -4,8 +4,5 @@
     "name": "DeadlineBar",
     "description": "Time management tool which offers a visual representation of an upcoming deadline.",
     "version": "0.2",
-    "prevent-decorations": false,
-    "numberOfSegments": "60",
-    "startDate": "April 1, 2024 00:00:00",
-    "endDate": "May 1, 2024 00:00:00"
+    "prevent-decorations": false
 }
