@@ -32,7 +32,8 @@ DeadlineBar.prototype = {
     initialiseSettings: function (desklet_id) {
 
         //Settings defined in settings-schema.json
-
+        //BindingDirection.IN means code cannot affect config
+        //Binds settings defined in config to instance variables with the same name
         this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
         this.settings.bindProperty(Settings.BindingDirection.IN, "numberOfSegments", "numberOfSegments", this.refreshUI);
         this.settings.bindProperty(Settings.BindingDirection.IN, "startDate", "startDate", this.refreshUI);
@@ -40,6 +41,8 @@ DeadlineBar.prototype = {
     },
 
     refreshUI: function () {
+
+        this.segmentNewLine = this.segmentNewLine;
 
         const startDate = new Date(this.startDate);
         this.START_TIME = startDate.getTime();
@@ -67,7 +70,6 @@ DeadlineBar.prototype = {
             Util.spawnCommandLine("xdg-open " + this.configFile);
         }));
 
-
     },
 
     on_desklet_removed: function () {
@@ -75,7 +77,9 @@ DeadlineBar.prototype = {
     },
 
     _updateTimeLoop: function () {
-        this.text.set_text(this._timeToEmoji())
+        let _text = this._timeToEmoji();
+
+        this.text.set_text(_text);
         this.timeout = MainLoop.timeout_add_seconds(1, Lang.bind(this, this._updateTimeLoop));
     },
 
