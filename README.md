@@ -14,8 +14,12 @@ Below are a few various examples for deadlines (partial - few segments, partial 
 
 ![config-demo.jpg](https://github.com/CodeZilla12/DeadlineDeskletCinnamon/assets/69915380/783e7994-e4f9-4ea0-ac75-8f43bf22d2e9)
 
+![Desktop-Demo.jpg](https://github.com/CodeZilla12/DeadlineDeskletCinnamon/assets/69915380/c3081589-941f-46c0-89c6-8267e8668ad2)
+
 
 The dates as well as the number of segments can be modified via right click -> 'configure...' . Which then updates in real-time. Default settings located in settings-schema.json.
+
+
 
 This was a deceptively challenging project, as the existing documentation for desklet development is extremely lackluster.
 
