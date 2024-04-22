@@ -1,28 +1,31 @@
 const Desklet = imports.ui.desklet;
+const GLib = imports.gi.GLib;
 const St = imports.gi.St;
-const MainLoop = imports.mainloop
-const Lang = imports.lang
+const MainLoop = imports.mainloop;
+const Lang = imports.lang;
+const Util = imports.misc.util;
 
 let greenEmoji = "🟩";
 let redEmoji = "🟥";
 let purpleEmoji = "🟪";
 
-function HelloDesklet(metadata, desklet_id) {
+function DeadlineBar(metadata, desklet_id) {
     this._init(metadata, desklet_id);
 }
 
-HelloDesklet.prototype = {
+DeadlineBar.prototype = {
     __proto__: Desklet.Desklet.prototype,
 
     _init: function (metadata, desklet_id) {
         Desklet.Desklet.prototype._init.call(this, metadata, desklet_id);
 
-        const startDate = new Date("April 20, 2024 19:17:00");
+        const startDate = new Date(metadata["startDate"]);
         this.START_TIME = startDate.getTime();
 
-        const endDate = new Date("April 20, 2024 19:18:00");
+        const endDate = new Date(metadata["endDate"]);
         this.END_TIME = endDate.getTime()
-        this.MAX_INTERVALS = 10;
+
+        this.MAX_INTERVALS = metadata["numberOfSegments"];
         this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
 
         this.setupUI();
@@ -36,6 +39,13 @@ HelloDesklet.prototype = {
         this.text = new St.Label();
         this.window.add_actor(this.text);
         this.setContent(this.window);
+
+        this.configFile = GLib.get_home_dir() + "/.local/share/cinnamon/desklets/DeadlineBar@SG/metadata.json";
+
+        this._menu.addAction(_("Edit Config"), Lang.bind(this, function () {
+            Util.spawnCommandLine("xdg-open " + this.configFile);
+        }));
+
 
     },
 
@@ -62,5 +72,5 @@ HelloDesklet.prototype = {
 
 // Is this run in a loop?
 function main(metadata, desklet_id) {
-    return new HelloDesklet(metadata, desklet_id);
+    return new DeadlineBar(metadata, desklet_id);
 }
