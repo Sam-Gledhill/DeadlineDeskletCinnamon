@@ -1,8 +1,8 @@
 # Deadline Desklet for Linux Mint Cinnamon
 
-Lightweight time-management desklet for Linux Mint. Provides a graphical representation of time elapsed between two dates, acting as a constant reminder of an upcoming date, as well as how long you have until the date arrives.
+Lightweight time-management desklet for Linux Mint. Provides a graphical representation of time elapsed between two dates, acting as a reminder of an upcoming date, as well as how long you have until the date arrives.
 
-Below is an example for 22/04 to 1/05 taken at 6pm on 22/04. These dates, as well as the number of segments can be changed via right click -> 'configure...'
+Below is an example for 22/04 to 1/05 taken at 6pm on 22/04. These dates, as well as the number of segments can be modified via right click -> 'configure...'
 
 ![loading-bar.jpg](https://github.com/CodeZilla12/DeadlineDeskletCinnamon/assets/69915380/96412408-343f-469b-9a60-0c5f423e833e)
 
@@ -13,3 +13,9 @@ This was a deceptively challenging project, as the existing documentation for de
 Linux Mint 21.1 Cinnamon <=
 
 Drop the contents into at folder located at _~/.local/share/cinnamon/desklets/DeadlineDesklet@SG_. Right click on desktop and click "Add Desklet", choosing this desklet from the dropdown.
+
+
+# Todo
+-  Better input handling on the config
+-  Multiple instances with individual dates tracked
+-  Ability to have a tracker span multiple newlines
