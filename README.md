@@ -2,7 +2,7 @@
 
 Lightweight time-management desklet for Linux Mint. Provides a graphical representation of time elapsed between two dates, acting as a reminder of an upcoming date, as well as how long you have until the date arrives.
 
-Below is an example for 22/04 to 1/05 taken at 6pm on 22/04. These dates, as well as the number of segments can be modified via right click -> 'configure...'
+Below are a few various examples for dates. These dates as well as the number of segments can be modified via right click -> 'configure...' . Default settings located in settings-schema.json.
 
 ![loading-bar.jpg](https://github.com/CodeZilla12/DeadlineDeskletCinnamon/assets/69915380/96412408-343f-469b-9a60-0c5f423e833e)
 
