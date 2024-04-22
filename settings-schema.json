@@ -2,5 +2,26 @@
     "head0": {
         "type": "header",
         "description": "Settings for DeadlineBar"
+    },
+    "numberOfSegments": {
+        "type": "entry",
+        "default": "10",
+        "description": "Number of Green Segments",
+        "tooltip": "Tooltip",
+        "allow-none": true
+    },
+    "startDate": {
+        "type": "entry",
+        "default": "April 1, 2024 00:00:00",
+        "description": "Command for editing this note (on mouse click)",
+        "tooltip": "%f will replaced by the text file path.",
+        "allow-none": true
+    },
+    "endDate": {
+        "type": "entry",
+        "default": "May 1, 2024 00:00:00",
+        "description": "Command for editing this note (on mouse click)",
+        "tooltip": "%f will replaced by the text file path.",
+        "allow-none": true
     }
 }

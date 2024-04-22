@@ -22,8 +22,7 @@ DeadlineBar.prototype = {
 
         //Settings stored in settings-scema.json
         this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
-
-
+        this.settings.bindProperty(Settings.BindingDirection.IN, "numberOfSegments", "numberOfSegments", this.refreshUI);
 
         const startDate = new Date(metadata["startDate"]);
         this.START_TIME = startDate.getTime();
@@ -31,12 +30,17 @@ DeadlineBar.prototype = {
         const endDate = new Date(metadata["endDate"]);
         this.END_TIME = endDate.getTime()
 
-        this.MAX_INTERVALS = metadata["numberOfSegments"];
+        this.MAX_INTERVALS = this.numberOfSegments;
         this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
 
         this.setupUI();
 
         this._updateTimeLoop()
+    },
+
+    refreshUI: function () {
+        this.MAX_INTERVALS = this.numberOfSegments
+        this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
     },
 
     setupUI: function () {
@@ -48,7 +52,7 @@ DeadlineBar.prototype = {
 
         this.configFile = GLib.get_home_dir() + "/.local/share/cinnamon/desklets/DeadlineBar@SG/metadata.json";
 
-        this._menu.addAction(_("Edit Config"), Lang.bind(this, function () {
+        this._menu.addAction(_("Edit Metadata"), Lang.bind(this, function () {
             Util.spawnCommandLine("xdg-open " + this.configFile);
         }));
 
