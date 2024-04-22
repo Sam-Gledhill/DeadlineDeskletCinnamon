@@ -16,6 +16,6 @@ Drop the contents into at folder located at _~/.local/share/cinnamon/desklets/De
 
 
 # Todo
--  Better input handling on the config
+-  Sanitising input on the config & adding return to default
 -  Multiple instances with individual dates tracked
 -  Ability to have a tracker span multiple newlines
