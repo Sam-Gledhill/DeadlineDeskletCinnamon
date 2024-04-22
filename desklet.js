@@ -66,6 +66,10 @@ DeadlineBar.prototype = {
         let nReds = this.MAX_INTERVALS - nGreens;
         return greenEmoji.repeat(nGreens) + redEmoji.repeat(nReds);
 
+    },
+
+    on_desklet_removed: function () {
+        MainLoop.source_remove(this.timeout)
     }
 
 };
