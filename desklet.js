@@ -20,17 +20,23 @@ DeadlineBar.prototype = {
     _init: function (metadata, desklet_id) {
         Desklet.Desklet.prototype._init.call(this, metadata, desklet_id);
 
-        //Settings stored in settings-scema.json
-        this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
-        this.settings.bindProperty(Settings.BindingDirection.IN, "numberOfSegments", "numberOfSegments", this.refreshUI);
-        this.settings.bindProperty(Settings.BindingDirection.IN, "startDate", "startDate", this.refreshUI);
-        this.settings.bindProperty(Settings.BindingDirection.IN, "endDate", "endDate", this.refreshUI);
+        this.initialiseSettings(desklet_id);
 
         this.setupUI();
 
         this.refreshUI();
 
         this._updateTimeLoop()
+    },
+
+    initialiseSettings: function (desklet_id) {
+
+        //Settings defined in settings-schema.json
+
+        this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
+        this.settings.bindProperty(Settings.BindingDirection.IN, "numberOfSegments", "numberOfSegments", this.refreshUI);
+        this.settings.bindProperty(Settings.BindingDirection.IN, "startDate", "startDate", this.refreshUI);
+        this.settings.bindProperty(Settings.BindingDirection.IN, "endDate", "endDate", this.refreshUI);
     },
 
     refreshUI: function () {
