@@ -6,22 +6,22 @@
     "numberOfSegments": {
         "type": "entry",
         "default": "10",
-        "description": "Number of Green Segments",
+        "description": "Total Number of Segments",
         "tooltip": "Tooltip",
-        "allow-none": true
+        "allow-none": false
     },
     "startDate": {
         "type": "entry",
         "default": "April 1, 2024 00:00:00",
-        "description": "Command for editing this note (on mouse click)",
-        "tooltip": "%f will replaced by the text file path.",
-        "allow-none": true
+        "description": "Start Date",
+        "tooltip": "Date which the timer measures the time from",
+        "allow-none": false
     },
     "endDate": {
         "type": "entry",
         "default": "May 1, 2024 00:00:00",
-        "description": "Command for editing this note (on mouse click)",
-        "tooltip": "%f will replaced by the text file path.",
-        "allow-none": true
+        "description": "End Date",
+        "tooltip": "Date which the timer measures to",
+        "allow-none": false
     }
 }

@@ -23,22 +23,27 @@ DeadlineBar.prototype = {
         //Settings stored in settings-scema.json
         this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
         this.settings.bindProperty(Settings.BindingDirection.IN, "numberOfSegments", "numberOfSegments", this.refreshUI);
-
-        const startDate = new Date(metadata["startDate"]);
-        this.START_TIME = startDate.getTime();
-
-        const endDate = new Date(metadata["endDate"]);
-        this.END_TIME = endDate.getTime()
-
-        this.MAX_INTERVALS = this.numberOfSegments;
-        this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
+        this.settings.bindProperty(Settings.BindingDirection.IN, "startDate", "startDate", this.refreshUI);
+        this.settings.bindProperty(Settings.BindingDirection.IN, "endDate", "endDate", this.refreshUI);
 
         this.setupUI();
+
+        this.refreshUI();
 
         this._updateTimeLoop()
     },
 
     refreshUI: function () {
+
+        const startDate = new Date(this.startDate);
+        this.START_TIME = startDate.getTime();
+
+        const endDate = new Date(this.endDate);
+        this.END_TIME = endDate.getTime()
+
+        this.MAX_INTERVALS = this.numberOfSegments;
+        this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
+
         this.MAX_INTERVALS = this.numberOfSegments
         this.SECONDS_PER_INTERVAL = (this.END_TIME - this.START_TIME) / this.MAX_INTERVALS;
     },
