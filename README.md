@@ -27,8 +27,9 @@ Linux Mint 21.1 Cinnamon <=
 Drop the contents into at folder located at _~/.local/share/cinnamon/desklets/DeadlineDesklet@SG_. Right click on desktop and click "Add Desklet", choosing this desklet from the dropdown.
 
 
-# Todo
+# Future Features
 -  Sanitising input on the config & adding return to default option.
 -  Multiple desklet instances with individual deadlines tracked.
--  Ability to have a tracker span multiple newlines.
--  Add option to automatically insert current date into config.
+-  Ability to have a tracker span multiple lines.
+-  Option to automatically insert current date into config.
+-  Different visual representations of time (Pie chart, clocks, images etc) 
