@@ -18,22 +18,19 @@ DeadlineBar.prototype = {
     __proto__: Desklet.Desklet.prototype,
 
     _init: function (metadata, desklet_id) {
+        
         Desklet.Desklet.prototype._init.call(this, metadata, desklet_id);
-
         this.initialiseSettings(desklet_id);
-
         this.setupUI();
-
         this.refreshUI();
-
         this._updateTimeLoop()
     },
 
     initialiseSettings: function (desklet_id) {
-
-        //Settings defined in settings-schema.json
-        //BindingDirection.IN means code cannot affect config
-        //Binds settings defined in config to instance variables with the same name
+        
+        // Settings defined in settings-schema.json
+        // BindingDirection.IN means code cannot affect config
+        // Binds settings defined in config to instance variables with the same name
         this.settings = new Settings.DeskletSettings(this, this.metadata["uuid"], desklet_id);
         this.settings.bindProperty(Settings.BindingDirection.IN, "numberOfSegments", "numberOfSegments", this.refreshUI);
         this.settings.bindProperty(Settings.BindingDirection.IN, "startDate", "startDate", this.refreshUI);
@@ -41,9 +38,8 @@ DeadlineBar.prototype = {
     },
 
     refreshUI: function () {
-
-        this.segmentNewLine = this.segmentNewLine;
-
+        // Refreshes all variables - runs during _init and upon each config change
+        
         const startDate = new Date(this.startDate);
         this.START_TIME = startDate.getTime();
 
@@ -58,14 +54,15 @@ DeadlineBar.prototype = {
     },
 
     setupUI: function () {
-        // main container for the desklet
+        
+        // Main container for the desklet
         this.window = new St.Bin();
         this.text = new St.Label();
         this.window.add_actor(this.text);
         this.setContent(this.window);
 
+        // Adds ability to edit metadata via right-clicking the desklet. Should probably remove.
         this.configFile = GLib.get_home_dir() + "/.local/share/cinnamon/desklets/DeadlineBar@SG/metadata.json";
-
         this._menu.addAction(_("Edit Metadata"), Lang.bind(this, function () {
             Util.spawnCommandLine("xdg-open " + this.configFile);
         }));
@@ -73,13 +70,17 @@ DeadlineBar.prototype = {
     },
 
     on_desklet_removed: function () {
+        
+        // Kills the mainloop thread on removing the desklet
         MainLoop.source_remove(this.timeout)
     },
 
     _updateTimeLoop: function () {
+        
         let _text = this._timeToEmoji();
-
         this.text.set_text(_text);
+
+        // Mainloop of the program. Repeatedly calls this function once per second
         this.timeout = MainLoop.timeout_add_seconds(1, Lang.bind(this, this._updateTimeLoop));
     },
 
@@ -88,6 +89,7 @@ DeadlineBar.prototype = {
         const d = new Date();
         let nGreens = Math.floor((d.getTime() - this.START_TIME) / this.SECONDS_PER_INTERVAL);
 
+        // Equivalent to if d.getTime() >= this.endTime
         if (nGreens >= this.MAX_INTERVALS) {
             return purpleEmoji.repeat(this.MAX_INTERVALS);
         }
