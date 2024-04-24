@@ -103,7 +103,6 @@ DeadlineBar.prototype = {
 
 };
 
-// Is this run in a loop?
 function main(metadata, desklet_id) {
     return new DeadlineBar(metadata, desklet_id);
 }
