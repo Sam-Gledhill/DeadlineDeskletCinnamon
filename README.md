@@ -24,7 +24,7 @@ This was a deceptively challenging project, as the existing documentation for de
 
 Linux Mint 21.1 Cinnamon <=
 
-Drop the contents into at folder located at ```~/.local/share/cinnamon/desklets/DeadlineBar@SG_``` Right click on desktop and click "Add Desklet", choosing this desklet from the menu.
+Drop the contents into at folder located at ```~/.local/share/cinnamon/desklets/DeadlineBar@SG``` Right click on desktop and click "Add Desklet", choosing this desklet from the menu.
 
 
 # Future Features
