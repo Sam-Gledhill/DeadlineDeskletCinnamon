@@ -22,7 +22,7 @@ This was a deceptively challenging project, as the existing documentation for de
 
 # Dependencies & Installation
 
-Linux Mint 21.1 Cinnamon <=
+Linux Mint 21.1 Cinnamon or later
 
 Drop the contents into at folder located at ```~/.local/share/cinnamon/desklets/DeadlineBar@SG``` Right click on desktop and click "Add Desklet", choosing this desklet from the menu.
 
